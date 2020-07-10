@@ -4,20 +4,23 @@ __author__ = 'pokeyjess'
 
 import json
 import turtle
-import urllib.request
+# import urllib.request
+import requests
 import time
+import argparse
 
 # ASTRONAUTS
 
 
 def get_astronauts():
-    response = urllib.request.urlopen("http://api.open-notify.org/astros.json")
-    result = json.loads(response.read())
-    print("Total astronauts in space right now: " + str(result["number"]))
+    response = requests.get("http://api.open-notify.org/astros.json")
+    result = response.json()
+    number = result["number"]
+    print("Total astronauts in space right now: " + str(number))
     astronauts = result["people"]
     for astronaut in astronauts:
         print("Name: " + astronaut["name"] +
-              "\n \t Spacecraft: " + str(astronaut["craft"]))
+              "\n\t Spacecraft: " + astronaut["craft"])
 
 
 get_astronauts()
@@ -26,9 +29,8 @@ get_astronauts()
 
 
 def get_location():
-    response = urllib.request.urlopen(
-        "http://api.open-notify.org/iss-now.json")
-    result = json.loads(response.read())
+    response = requests.get("http://api.open-notify.org/iss-now.json")
+    result = response.json()
     location = result["iss_position"]
     latitude = location["latitude"]
     longitude = location["longitude"]
