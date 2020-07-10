@@ -1,6 +1,17 @@
 #!/usr/bin/env python
 
-__author__ = '???'
+__author__ = 'pokeyjess'
+
+import json
+import turtle
+import urllib.request
+import time
+
+
+api = "http://api.open-notify.org/astros.json"
+response = urllib.request.urlopen(api)
+result = json.loads(response.read())
+print("Astronauts in space: " + str(result["number"]))
 
 
 def main():
