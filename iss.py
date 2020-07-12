@@ -26,11 +26,11 @@ get_timestamp()
 def get_astronauts():
     result = astronaut_response.json()
     number = result["number"]
-    print("There are " + str(number) + " astronauts in space")
+    print("There are " + str(number) + " astronauts in space. They are:")
     astronauts = result["people"]
     for astronaut in astronauts:
-        print("Name: " + astronaut["name"] +
-              "\n\t Spacecraft: " + astronaut["craft"])
+        print("\t" + astronaut["name"] +
+              ", " + astronaut["craft"])
 
 
 get_astronauts()
@@ -50,8 +50,8 @@ def get_latitude():
     return int(float(latitude))
 
 
-print(f"The current location of the ISS is: \nLongitude: " + str(get_longitude()) +
-      "\nLatitude: " + str(get_latitude()))
+print(f"The current location of the ISS is: \n\tLongitude: " + str(get_longitude()) +
+      "\n\tLatitude: " + str(get_latitude()))
 
 
 def create_map():
@@ -79,7 +79,7 @@ show_ISS_location()
 def get_pass_time():
     result = pass_time_response.json()
     pass_time = result["response"][1]["risetime"]
-    print("The next time the ISS will pass over Indy will be: \n" +
+    print("The next time the ISS will pass over Indianapolis will be: \n\t" +
           time.ctime(pass_time))
 
 
