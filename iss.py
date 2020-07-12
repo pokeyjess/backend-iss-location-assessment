@@ -4,7 +4,6 @@ __author__ = 'pokeyjess'
 
 import json
 import turtle
-# import urllib.request
 import requests
 import time
 import argparse
@@ -38,6 +37,21 @@ def get_location():
 
 
 get_location()
+
+
+map = turtle.Screen()
+map.setup(800, 400)  # width, height
+map.setworldcoordinates(-180, -90, 180, 90)
+map.bgpic("map.gif")
+
+
+turtle.done()  # last turtle command to keep graphic open
+
+# part D
+# how to pass proper parameters for Indy into api through requests package
+
+# time stamp -- use time.ctime()
+# string/text on map that shows next date and time of pass over
 
 
 def main():
