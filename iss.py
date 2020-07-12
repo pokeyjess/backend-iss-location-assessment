@@ -10,7 +10,8 @@ import time
 
 astronaut_response = requests.get("http://api.open-notify.org/astros.json")
 location_response = requests.get("http://api.open-notify.org/iss-now.json")
-pass_time = requests.get("http://api.open-notify.org/iss-pass.json")
+pass_time_response = requests.get(
+    "http://api.open-notify.org/iss-pass.json?lat=40&lon=-86")
 
 
 def get_timestamp():
@@ -75,16 +76,20 @@ def show_ISS_location():
 show_ISS_location()
 
 
+def get_pass_time():
+    result = pass_time_response.json()
+    pass_time = result["response"][1]["risetime"]
+    print("The next time the ISS will pass over Indy will be: \n" +
+          time.ctime(pass_time))
+
+
+get_pass_time()
+
 turtle.done()  # last turtle command to keep graphic open
 
-#result = pass_time.json()
-# part D
-# how to pass proper parameters for Indy into api through requests package
-#lat, 40, long, -86
-#pass_time - api
 
-# time stamp -- use time.ctime()
-# string/text on map that shows next date and time of pass over
+# mark Indy with yellow dot
+# print time of flyover next to yellow dot
 
 
 def main():
