@@ -53,11 +53,16 @@ def create_map():
 
 create_map()
 
-iss = turtle.Turtle()
-iss.shape("rocket.gif")
-iss.setheading(90)
-iss.penup()
-iss.goto(get_longitude(), get_latitude())
+
+def show_ISS_location():
+    iss = turtle.Turtle()
+    iss.shape("rocket.gif")
+    iss.setheading(90)
+    iss.penup()
+    iss.goto(get_longitude(), get_latitude())
+
+
+show_ISS_location()
 
 
 turtle.done()  # last turtle command to keep graphic open
