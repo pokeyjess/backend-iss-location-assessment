@@ -10,12 +10,22 @@ import time
 
 astronaut_response = requests.get("http://api.open-notify.org/astros.json")
 location_response = requests.get("http://api.open-notify.org/iss-now.json")
+pass_time = requests.get("http://api.open-notify.org/iss-pass.json")
+
+
+def get_timestamp():
+    result = location_response.json()
+    timestamp = result["timestamp"]
+    print("As of " + time.ctime(timestamp) + ":")
+
+
+get_timestamp()
 
 
 def get_astronauts():
     result = astronaut_response.json()
     number = result["number"]
-    print("Total astronauts in space right now: " + str(number))
+    print("There are " + str(number) + " astronauts in space")
     astronauts = result["people"]
     for astronaut in astronauts:
         print("Name: " + astronaut["name"] +
@@ -39,7 +49,7 @@ def get_latitude():
     return int(float(latitude))
 
 
-print(f"Longitude: " + str(get_longitude()) +
+print(f"The current location of the ISS is: \nLongitude: " + str(get_longitude()) +
       "\nLatitude: " + str(get_latitude()))
 
 
@@ -67,9 +77,11 @@ show_ISS_location()
 
 turtle.done()  # last turtle command to keep graphic open
 
-
+#result = pass_time.json()
 # part D
 # how to pass proper parameters for Indy into api through requests package
+#lat, 40, long, -86
+#pass_time - api
 
 # time stamp -- use time.ctime()
 # string/text on map that shows next date and time of pass over
