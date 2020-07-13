@@ -1,33 +1,45 @@
 <img align=left src="map.gif" width=300/><br clear=left>
+
 ## Where In the World Is the International Space Station (ISS)?
 
 ### Objectives
+
 - Use the `requests` package to query real-world data
 - Improve skills with dictionaries and indexing
 - Learn about Python's built-in [turtle](https://docs.python.org/3.3/library/turtle.html?highlight=turtle) graphics library
 
 ### Part A
+
 Using [this public API](http://api.open-notify.org/astros.json), write a Python program to obtain a list of the astronauts who are currently in space. Print their full names, the spacecraft they are currently on board, and the total number of astronauts in space.
+5 points
 
 ### Part B
+
 Using [**this** public API](http://api.open-notify.org/iss-now.json), obtain the current geographic coordinates (lat/lon) of the space station, along with a timestamp.
+5 points
 
 ### Part C
+
 With the [turtle](https://docs.python.org/3/library/turtle.html) graphics library (part of Python's standard library), create a graphics screen with the world map background image, [map.gif](./map.gif). Use `turtle` methods such as `Screen()`, `setup()`, `bgpic()`, and `setworldcoordinates()`. Register an icon image for the ISS within the turtle screen context, and create a `turtle.Turtle()` to move the ISS to its current lat/lon on the map. Use methods such as `shape()`, `setheading()`, `penup()`, and `goto()`.
+10 points
 
 ### Part D
+
 Find out the next time that the ISS will be overhead of Indianapolis, Indiana. Use the geographic lat/lon of Indianapolis, Indiana to plot a yellow dot on the map. Use [this public API](http://api.open-notify.org/iss-pass.json) to query the next pass.
+10 points
 
 You will need to supply the lat/lon coordinates as query parameters to this URL. The passover times are returned as timestamps, so you will need to use the `time.ctime()` method to convert them to human-readable text. Render the next passover time next to the Indianapolis location dot that you plotted earlier.
 
 ## Testing
-Make sure you are rendering the ISS at the correct geo-coordinates.  Check your solution against NASA's [real-time ISS location tracker](https://spotthestation.nasa.gov/tracking_map.cfm).  If your position looks odd, you may be reversing the meaning of your lat/lon when using the `Turtle.goto()` function.  `Turtle.goto()` expects to receive an x,y coordinate pair.  Remember that longitudes are x, and latitudes are y.
+
+Make sure you are rendering the ISS at the correct geo-coordinates. Check your solution against NASA's [real-time ISS location tracker](https://spotthestation.nasa.gov/tracking_map.cfm). If your position looks odd, you may be reversing the meaning of your lat/lon when using the `Turtle.goto()` function. `Turtle.goto()` expects to receive an x,y coordinate pair. Remember that longitudes are x, and latitudes are y.
 
 ## PR (Pull Request) Workflow for this assignment
-1. *Fork* this repository into your own personal GitHub account.
-2. *Clone* your own repo to your local development machine.
+
+1. _Fork_ this repository into your own personal GitHub account.
+2. _Clone_ your own repo to your local development machine.
 3. Create a separate branch named `dev` and checkout the branch.
-5. Commit your changes, then `git push` the branch back to your own GitHub account.
-5. From your own GitHub repo, create a pull request (PR) *from your `dev` branch back to **your own** master*.
+4. Commit your changes, then `git push` the branch back to your own GitHub account.
+5. From your own GitHub repo, create a pull request (PR) _from your `dev` branch back to **your own** master_.
 6. Copy/Paste the URL **link to your PR** as your assignment submission.
 7. Your grader will post code review comments inline within your pull request in your GitHub account. Be sure to respond to any comments and make requested changes. **RESUBMIT** a new link to your PR after making changes. This is the code review iteration cycle.
