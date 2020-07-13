@@ -54,7 +54,7 @@ print("The current location of the ISS is: \n\tLongitude: "
 
 def create_map():
     map = turtle.Screen()
-    map.setup(800, 400)  # width, height
+    map.setup(720, 360)  # width, height
     map.setworldcoordinates(-180, -90, 180, 90)
     map.bgpic("map.gif")
     map.register_shape("rocket.gif")
