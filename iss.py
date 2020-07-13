@@ -2,7 +2,6 @@
 
 __author__ = 'pokeyjess'
 
-import json
 import turtle
 import requests
 import time
@@ -49,8 +48,8 @@ def get_latitude():
     return int(float(latitude))
 
 
-print(f"The current location of the ISS is: \n\tLongitude: " + str(get_longitude()) +
-      "\n\tLatitude: " + str(get_latitude()))
+print("The current location of the ISS is: \n\tLongitude: "
+      + str(get_longitude()) + "\n\tLatitude: " + str(get_latitude()))
 
 
 def create_map():
@@ -82,9 +81,6 @@ def get_pass_time():
           time.ctime(pass_time))
 
 
-get_pass_time()
-
-
 def create_yellow_dot():
     dot = turtle.Turtle()
     dot.hideturtle()
@@ -92,13 +88,14 @@ def create_yellow_dot():
     dot.goto(-86.15, 39.76)
     dot.color("yellow")
     dot.dot(10)
-    dot.write("Next flyover: " + time.ctime(get_pass_time()), font=("Arial", 10))
+    dot.write("Next flyover: " + time.ctime(get_pass_time()),
+              font=("Arial", 10))
 
 
 create_yellow_dot()
 
 
-turtle.done()  # last turtle command to keep graphic open
+turtle.done()
 
 
 def main():
