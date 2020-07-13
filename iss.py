@@ -6,7 +6,6 @@ import json
 import turtle
 import requests
 import time
-#import argparse
 
 astronaut_response = requests.get("http://api.open-notify.org/astros.json")
 location_response = requests.get("http://api.open-notify.org/iss-now.json")
@@ -85,11 +84,21 @@ def get_pass_time():
 
 get_pass_time()
 
+
+def create_yellow_dot():
+    dot = turtle.Turtle()
+    dot.hideturtle()
+    dot.penup()
+    dot.goto(-86.15, 39.76)
+    dot.color("yellow")
+    dot.dot(10)
+    dot.write("Next flyover: " + time.ctime(get_pass_time()), font=("Arial", 10))
+
+
+create_yellow_dot()
+
+
 turtle.done()  # last turtle command to keep graphic open
-
-
-# mark Indy with yellow dot
-# print time of flyover next to yellow dot
 
 
 def main():
